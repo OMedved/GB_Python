@@ -1,0 +1,1 @@
+print([id for id in range(20, 241) if id % 20 == 0 or id % 21 == 0])
