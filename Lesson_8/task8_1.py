@@ -1,3 +1,7 @@
+# В процессе предварительных проверок начал выдавать AttributeError: 'Date' object has no attribute 'split'
+# Но как может у строки не быть аттрибута split? Мы же автоматически приводим к str в __init__
+# В общем, не смог понять и довести.
+
 class Date:
     def __init__(self, date):
         self.date = str(date)
@@ -19,10 +23,11 @@ class Date:
             print('В феврале не бывает больше 29 дней')
         elif day < 0 or day > 31:
             print('Таких дней не бывает')
-        elif mnth < 0 or mnth > 31:
+        elif mnth < 0 or mnth > 12:
             print('Таких месяцев не бывает')
 
 
-user_date = input('Введите дату в формате дд-мм-гггг, разделяя значения дефисом: ')
+user_date = Date(input('Введите дату в формате дд-мм-гггг, разделяя значения дефисом: '))
 Date.to_int(user_date)
+Date.valid_date(user_date)
 print(user_date)
